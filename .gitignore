@@ -1,0 +1,40 @@
+#
+# Package only files
+#
+
+# Compiled Bytecode, precompiled output and assembly
+*.amx
+*.lst
+*.asm
+
+# Vendor directory
+dependencies/
+
+#
+# Server/gamemode related files
+#
+server.cfg
+samp.json
+
+# Plugins directory
+plugins/
+
+# binaries
+*.exe
+*.dll
+*.so
+*.sh
+announce
+samp03svr
+samp-npc
+crashinfo.txt
+
+# logs
+logs/
+server_log.txt
+
+#
+# Common files
+#
+
+*.code-workspace

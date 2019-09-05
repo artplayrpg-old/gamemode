@@ -6,8 +6,8 @@
 	"dependencies": [
 		"sampctl/samp-stdlib",
 		"pawn-lang/YSI-Includes@5.x",
-		"pBlueG/SA-MP-MySQL",
-		"Southclaws/pawn-env",
+		"pBlueG/SA-MP-MySQL:R41-4",
+		"Southclaws/pawn-env:1.0.1",
 		"maddinat0r/sscanf:v2.8.3",
 		"Southclaws/samp-logger",
 		"samp-incognito/samp-streamer-plugin:v2.9.4",

@@ -27,7 +27,8 @@
 			"includes": [
 				"gamemodes/database",
 				"gamemodes/artplay/utils",
-				"gamemodes/artplay/player"
+				"gamemodes/artplay/player",
+				"gamemodes/artplay/commands"
 			]
 		}
 	],

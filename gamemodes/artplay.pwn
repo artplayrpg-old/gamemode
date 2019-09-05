@@ -55,6 +55,7 @@
 
 #include <utils>
 #include <database>
+#include <commands>
 #include <player>
 
 //

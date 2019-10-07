@@ -24,8 +24,7 @@ static PlayerPasswordSalt[MAX_PLAYERS][SHA256_SALT_LENGTH];
 static PlayerName[MAX_PLAYERS][MAX_PLAYER_NAME];
 static PlayerSkin[MAX_PLAYERS];
 static PlayerMoney[MAX_PLAYERS];
-
-static Group:LoggedInGroup;
+static PlayerStatus[MAX_PLAYERS];
 
 /**
  *    __                 _
@@ -47,7 +46,7 @@ static Group:LoggedInGroup;
  */
 
 hook OnGameModeInit() {
-    LoggedInGroup = Group_Create("LoggedIn");
+
 }
 
 /**
@@ -158,7 +157,7 @@ hook OnCreatePlayerORM(ORM:ormid, playerid) {
  */
 
 hook OnPlayerDataLoaded(playerid) {
-    Group_SetPlayer(LoggedInGroup, playerid, true);
+    PlayerStatus[playerid] |= PLAYER_STATUS_LOGGED;
 }
 
 /**
@@ -181,6 +180,7 @@ hook OnResetPlayerVars(playerid) {
     PlayerORM[playerid]               = ORM:0;
     PlayerSkin[playerid]              = 0;
     PlayerMoney[playerid]             = 0;
+    PlayerStatus[playerid]            = 0;
 }
 
 /**
@@ -349,7 +349,7 @@ static Player_Save(playerid) {
  */
 
 stock Player_IsLoggedIn(playerid) {
-    return !!Group_GetPlayer(LoggedInGroup, playerid);
+    return (PlayerStatus[playerid] & PLAYER_STATUS_LOGGED);
 }
 
 /**

@@ -31,7 +31,6 @@
 // YSI (https://github.com/pawn-lang/YSI-Includes)
 //
 
-#include <YSI_Players\y_groups>
 #include <YSI_Coding\y_inline>
 #include <YSI_Coding\y_timers>
 #include <YSI_Coding\y_va>

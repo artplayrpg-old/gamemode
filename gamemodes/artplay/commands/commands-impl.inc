@@ -17,7 +17,7 @@
  *
  */
 
-static PlayerCommand[MAX_PLAYERS];
+static PlayerCommandTick[MAX_PLAYERS];
 
 /**
  *    __                 _
@@ -39,10 +39,10 @@ static PlayerCommand[MAX_PLAYERS];
  */
 
 hook OnGameModeInit() {
-    
+
     // Sets the permissions for
     // all commands at once.
-    Group_SetGlobalCommandDefault(false);
+    Command_SetDeniedReturn(true);
 }
 
 /**
@@ -68,14 +68,29 @@ hook OnGameModeInit() {
 
 public e_COMMAND_ERRORS:OnPlayerCommandReceived(playerid, cmdtext[], e_COMMAND_ERRORS:success) {
 
-    if(PlayerCommand[playerid] > GetTickCount()) {
+    if(!Player_IsLoggedIn(playerid)) {
         return COMMAND_DENIED;
     }
 
-    if(success == COMMAND_OK) {
-        PlayerCommand[playerid] = GetTickCount() + 1000;
+    if(PlayerCommandTick[playerid] > GetTickCount()) {
+        return COMMAND_DENIED;
+    }
 
-        return COMMAND_OK;
+    switch(success) {
+
+        case COMMAND_OK: {
+            PlayerCommandTick[playerid] = GetTickCount() + 1000;
+
+            return COMMAND_OK;
+        }
+
+        case COMMAND_DENIED: {
+            return COMMAND_DENIED;
+        }
+
+        case COMMAND_UNDEFINED: {
+            return COMMAND_UNDEFINED;
+        }
     }
 
     return COMMAND_OK;

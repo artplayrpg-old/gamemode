@@ -6,9 +6,18 @@
  * @since       Version 1.0.0
  */
 
-#define MAX_LOGIN_ATTEMPTS   (2)
-#define SHA256_HASH_LENGTH   (65)
-#define SHA256_SALT_LENGTH   (17)
+#define MAX_LOGIN_ATTEMPTS      (2)
+#define SHA256_HASH_LENGTH      (65)
+#define SHA256_SALT_LENGTH      (17)
 
+//
+// Bitwise values definitions for player flags.
+//
+
+#define PLAYER_STATUS_LOGGED    (1 << 0)
+
+//
 // Declarations
+//
+
 forward ORM:Player_GetORM(playerid);
